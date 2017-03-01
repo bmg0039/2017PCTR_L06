@@ -20,6 +20,7 @@ public class Billiards extends JFrame {
 
 	private Board board;
 
+	// TODO update with number of group label. See practice statement.
 	private final int N_BALL = 9;
 	private Ball[] balls;
 
@@ -55,6 +56,15 @@ public class Billiards extends JFrame {
 
 	private void initBalls() {
 		// TODO init balls
+		Ball ball1= new Ball();
+		Ball ball2= new Ball();
+		Ball ball3= new Ball();
+		Ball ball4= new Ball();
+		Ball ball5= new Ball();
+		Ball ball6= new Ball();
+		Ball ball7= new Ball();
+		Ball ball8= new Ball();
+		Ball ball9= new Ball();
 	}
 
 	private class StartListener implements ActionListener {
