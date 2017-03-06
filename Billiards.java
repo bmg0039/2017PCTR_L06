@@ -1,6 +1,7 @@
 package p012;
 
 import javax.swing.JButton;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -20,9 +21,13 @@ public class Billiards extends JFrame {
 
 	private Board board;
 
-
 	private final int N_BALL = 9;
-	private Ball[] balls;
+	
+	//Vector donde guardo las bolas
+	Ball[] bolas = new Ball[N_BALL];
+	
+	//Vector donde guardo los hilos asociados a cada bola
+	Thread[] hilos = new Thread[N_BALL];
 
 	public Billiards() {
 
@@ -54,9 +59,13 @@ public class Billiards extends JFrame {
 		setVisible(true);
 	}
 
+	
 	private void initBalls() {
-		for(int i=0;i<N_BALL;i++){
-			balls[i]=new Ball();
+		//Creo las bolas
+		for (int i=0;i<N_BALL;i++){
+			bolas[i] = new Ball();
+			//Las asigno al tablero
+			board.setBalls(bolas);
 		}
 	}
 

@@ -2,10 +2,10 @@ package p012;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
-//TODO Transform the code to be used safely in a concurrent context.  
-public class Ball { 
-	private String Ball = "Ball.png"; 
 
+public class Ball{ 
+	
+	private String Ball = "Ball.png"; 
 	private double x,y,dx,dy;
 	private double v,fi;
 	private Image image;
@@ -48,8 +48,12 @@ public class Ball {
 		checkPos(x,y);
 	}
 	
+	//Compruebo que las coordenadas de la bola estan dentro del tablero.
 	private void checkPos(double x, double y){
-		assert getX() < Billiards.Width && getY() < Billiards.Height;
+		assert getX() >= 0 : "Fuera del tablero";
+		assert getY() >= 0 : "Fuera del tablero";
+		assert getX() < Billiards.Width : "Fuera del tablero";
+		assert getY() < Billiards.Height : "Fuera del tablero";
 	}
 
 	public int getX() {
@@ -79,6 +83,5 @@ public class Ball {
 	public Image getImage() {
 		return image;
 	}
-
 }
 
