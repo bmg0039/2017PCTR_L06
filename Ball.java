@@ -29,7 +29,7 @@ public class Ball {
 		}
 		x += dx;   
 		y += dy;
-		//TODO Check postcondition
+		checkPos(x,y);
 	}
 
 	public void reflect() {
@@ -45,7 +45,11 @@ public class Ball {
 		if (Math.abs(y - Board.TOPBOARD) <  Math.abs(dy)) {
 			fi = - fi;
 		}
-		//TODO Check postcondition	
+		checkPos(x,y);
+	}
+	
+	private void checkPos(double x, double y){
+		assert getX() < Billiards.Width && getY() < Billiards.Height;
 	}
 
 	public int getX() {
