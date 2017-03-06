@@ -63,8 +63,26 @@ public class Billiards extends JFrame {
 	private class StartListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			// TODO Code is executed when start button is pushed
-
+			//Si hemos pulsado el boton parar y volvemos a pulsar empezar, las bolas siguen su camino
+			//Si las bolas se han detenido, al pulsar empezar, la ejecución se reinicia
+			boolean aux = true;
+			for (int i=0;i<N_BALL;i++){
+				if (bolas[i].getdr() == 0 && aux){
+					aux = true;
+				} else {
+					aux = false;
+				}
+			}
+			if(aux == true){
+				initBalls();
+			}
+			
+			//Por cada bola creo un nuevo hilo 
+			for (int i=0;i<N_BALL;i++){
+				//Recibo la bola y el tablero
+				hilos[i]= new Thread(new MovBall(bolas[i],board));
+				hilos[i].start();
+			}
 		}
 	}
 
